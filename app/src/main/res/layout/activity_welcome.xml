@@ -11,7 +11,8 @@
         android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo"
+        android:contentDescription="@string/app_name" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
-            android:text="Olá, boas vindas ao GeniusXP!"
+            android:text="@string/welcome_title"
             android:textAlignment="center"
             android:textSize="32sp"
             android:paddingHorizontal="32dp" />
@@ -39,7 +40,7 @@
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="A melhor experiência em eventos que você já viu! Faça login para obter uma experiência completa!"
+            android:text="@string/welcome_description"
             android:textAlignment="center"
             android:textSize="16sp"
             android:textColor="@color/zinc_600" />
@@ -52,7 +53,7 @@
             android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Já possuo conta"
+            android:text="@string/welcome_already_have_account_btn"
             style="@style/ButtonPrimary"
         />
 
@@ -64,7 +65,7 @@
             android:id="@+id/createAccountButton"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Criar nova conta"
+            android:text="@string/welcome_create_new_account_btn"
             style="@style/ButtonSecondary"
         />
     </LinearLayout>

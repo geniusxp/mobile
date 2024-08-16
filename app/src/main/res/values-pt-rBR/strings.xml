@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="welcome_title">Olá, boas-vindas ao GeniusXP!</string>
+
+    <string name="welcome_description">A melhor experiência em eventos que você já viu! Faça login para obter uma experiência completa!</string>
+    <string name="welcome_already_have_account_btn">Já possuo conta</string>
+    <string name="welcome_create_new_account_btn">Criar nova conta</string>
+
+    <string name="signin_title">Entre em sua conta</string>
+    <string name="signin_forgot_password_btn"><u>Esqueci minha senha</u></string>
+    <string name="signin_submit_btn">Login</string>
+    <string name="signin_signup_btn">Criar nova conta</string>
+
+    <string name="signup_title">Cadastre sua conta</string>
+    <string name="signup_submit_btn">Cadastrar</string>
+    <string name="signup_already_have_account_btn">Já possuo conta</string>
+
+
+    <string name="recover_password_title">Recuperar senha</string>
+    <string name="recover_password_submit_btn">Enviar e-mail de recuperação</string>
+
+    <string name="input_name_hint">Nome completo</string>
+    <string name="input_birth_hint">Data de nascimento</string>
+    <string name="input_cpf_hint">CPF</string>
+    <string name="input_email_hint">Endereço de E-mail</string>
+    <string name="input_password_hint">Senha</string>
+
+    <string name="agree_terms">Ao continuar você aceita os <u>Termos de Uso</u> e <u>Política de Privacidade</u> definidos pela GeniusXP.</string>
+</resources>

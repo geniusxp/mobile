@@ -17,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:src="@drawable/logo"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="24dp"
+            android:contentDescription="@string/app_name" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,7 +42,7 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Entre em sua conta"
+                android:text="@string/signin_title"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="32sp"
                 android:layout_marginTop="2dp"/>
@@ -53,8 +54,9 @@
             android:layout_height="48dp"
             android:ems="10"
             android:inputType="textEmailAddress"
-            android:hint="Endereço de e-mail"
-            android:layout_marginBottom="8dp" />
+            android:hint="@string/input_email_hint"
+            android:layout_marginBottom="8dp"
+            android:autofillHints="emailAddress" />
 
         <EditText
             android:id="@+id/passwordInput"
@@ -62,13 +64,14 @@
             android:layout_height="48dp"
             android:ems="10"
             android:inputType="textPassword"
-            android:hint="Senha" />
+            android:hint="@string/input_password_hint"
+            android:autofillHints="password" />
 
         <TextView
             android:id="@+id/forgotPasswordButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Esqueci minha senha"
+            android:text="@string/signin_forgot_password_btn"
             android:textSize="14sp"
             android:paddingVertical="8dp"
             android:layout_marginTop="8dp"
@@ -80,7 +83,7 @@
             android:id="@+id/submitButton"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Login"
+            android:text="@string/signin_submit_btn"
             style="@style/ButtonPrimary"
             android:layout_marginBottom="8dp"
         />
@@ -89,7 +92,7 @@
             android:id="@+id/createAccountButton"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Criar nova conta"
+            android:text="@string/signin_signup_btn"
             style="@style/ButtonSecondary"
         />
 
@@ -103,7 +106,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ao continuar você aceita os Termos de Uso e Política de Privacidade definidos pela GeniusXP."
+            android:text="@string/agree_terms"
             android:textAlignment="center"
             android:textColor="@color/zinc_600"
             android:layout_marginHorizontal="32dp"

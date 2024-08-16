@@ -1,3 +1,29 @@
 <resources>
-    <string name="app_name">GeniusXP</string>
+    <string name="app_name" translatable="false">GeniusXP</string>
+
+    <string name="welcome_title">Hello, welcome to GeniusXP!</string>
+    <string name="welcome_description">The best event experience you\'ve ever seen! Log in to get the full experience!</string>
+    <string name="welcome_already_have_account_btn">I already have an account</string>
+    <string name="welcome_create_new_account_btn">Create new account</string>
+
+    <string name="signin_title">Sign in</string>
+    <string name="signin_forgot_password_btn"><u>I forgot my password</u></string>
+    <string name="signin_submit_btn">Sign in</string>
+    <string name="signin_signup_btn">Create new account</string>
+
+    <string name="signup_title">Sign up</string>
+    <string name="signup_submit_btn">Sign up</string>
+    <string name="signup_already_have_account_btn">I already have an account</string>
+
+
+    <string name="recover_password_title">Recover password</string>
+    <string name="recover_password_submit_btn">Send recovery email</string>
+
+    <string name="input_name_hint">Full name</string>
+    <string name="input_birth_hint">Date of birth</string>
+    <string name="input_cpf_hint">Identifier Document</string>
+    <string name="input_email_hint">Email address</string>
+    <string name="input_password_hint">Password</string>
+
+    <string name="agree_terms">By continuing you accept the <u>Terms of Use</u> and <u>Privacy Policy</u> defined by GeniusXP.</string>
 </resources>
