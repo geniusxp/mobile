@@ -2,7 +2,7 @@
 <resources>
     <style name="Theme.GeniusXP.SplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/zinc_50</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_logo</item>
         <item name="postSplashScreenTheme">@style/Theme.GeniusXP</item>
     </style>
 </resources>

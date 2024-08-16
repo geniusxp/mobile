@@ -10,6 +10,6 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
 
         installSplashScreen()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_welcome)
     }
 }
