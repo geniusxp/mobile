@@ -67,7 +67,8 @@
             android:inputType="date"
             android:hint="@string/input_birth_hint"
             android:layout_marginBottom="8dp"
-            android:autofillHints="birthday" />
+            android:autofillHints="birthday"
+            android:focusable="false" />
 
         <EditText
             android:id="@+id/cpfInput"
