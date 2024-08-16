@@ -19,6 +19,9 @@
         <item name="materialButtonStyle">@style/ButtonPrimary</item>
         <item name="android:textViewStyle">@style/TextStyle</item>
         <item name="android:editTextStyle">@style/EditTextStyle</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="TextStyle" parent="android:Widget.TextView">
