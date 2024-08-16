@@ -1,16 +1,20 @@
 package com.github.ericknathan.geniusxp.ui.activity
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import android.util.Log
+import android.widget.TextView
 import com.github.ericknathan.geniusxp.R
+import com.google.android.material.button.MaterialButton
 
-class MainActivity : Activity() {
+class RecoverPasswordActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        installSplashScreen()
         setContentView(R.layout.activity_recover_password)
+
+        val buttonBack = findViewById<TextView>(R.id.backButton)
+
+        buttonBack.setOnClickListener { this.finish() }
     }
 }
