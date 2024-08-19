@@ -45,7 +45,7 @@
                 android:text="@string/signin_title"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="32sp"
-                android:layout_marginTop="2dp"/>
+                android:layout_marginTop="2dp" />
         </LinearLayout>
 
         <EditText

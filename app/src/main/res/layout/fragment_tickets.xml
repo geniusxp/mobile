@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".ui.fragments.TicketsFragment">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:src="@drawable/logo"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tickets_title"
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="32sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/input"
+        android:layout_marginVertical="24dp"
+        android:weightSum="2"
+        android:padding="4dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/nextEventsButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:text="@string/tickets_next"
+            style="@style/ButtonPrimary"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/previousEvent"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:text="@string/tickets_previous"
+            style="@style/ButtonGhost"
+            android:layout_weight="1"
+            android:layout_marginStart="5dp"
+            />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ticketList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/card_ticket" />
+</LinearLayout>

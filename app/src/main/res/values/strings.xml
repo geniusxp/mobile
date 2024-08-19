@@ -26,4 +26,15 @@
     <string name="input_password_hint">Password</string>
 
     <string name="agree_terms">By continuing you accept the <u>Terms of Use</u> and <u>Privacy Policy</u> defined by GeniusXP.</string>
+
+    <string name="tickets_title">Your tickets</string>
+    <string name="tickets_next">Next events</string>
+    <string name="tickets_previous">Previous events</string>
+
+    <string name="profile_edit_profile_btn">Edit profile</string>
+    <string name="profile_about">About me</string>
+    <string name="profile_interests">Interests</string>
+
+    <string name="menu_tickets">Tickets</string>
+    <string name="menu_profile">Profile</string>
 </resources>

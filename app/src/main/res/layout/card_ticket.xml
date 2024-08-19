@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="24dp"
+    android:clickable="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/card"
+        android:clipToOutline="true">
+        <ImageView
+            android:id="@+id/ticketImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@color/zinc_200"
+            android:scaleType="centerCrop" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/ticketTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="FIAP Next 2024"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/zinc_800"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/ticketAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="ARCA - Av. Manuel Bandeira, 360 - Vila Leopoldina"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/zinc_600"
+                android:textSize="14sp"
+                android:maxLines="2" />
+            <TextView
+                android:id="@+id/ticketAvailable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="3 disponíveis"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/primary_500"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
+

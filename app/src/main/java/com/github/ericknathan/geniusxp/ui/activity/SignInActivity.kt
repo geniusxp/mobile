@@ -3,7 +3,6 @@ package com.github.ericknathan.geniusxp.ui.activity
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
 import com.github.ericknathan.geniusxp.R
 import com.google.android.material.button.MaterialButton
@@ -26,7 +25,8 @@ class SignInActivity : Activity() {
         }
 
         buttonSignIn.setOnClickListener {
-            Log.i("TODO", "do signin method")
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }
 
         buttonCreateAccount.setOnClickListener {

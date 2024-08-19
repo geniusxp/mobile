@@ -21,9 +21,11 @@
     <color name="zinc_400">#FF52525b</color>
     <color name="zinc_300">#FF3f3f46</color>
     <color name="zinc_200">#FF27272a</color>
+    <color name="zinc_100_opaque">#8018181B</color>
     <color name="zinc_100">#FF18181B</color>
     <color name="zinc_50">#FF09090B</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#01000000</color>
 </resources>

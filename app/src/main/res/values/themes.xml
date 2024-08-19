@@ -20,6 +20,9 @@
         <item name="android:textViewStyle">@style/TextStyle</item>
         <item name="android:editTextStyle">@style/EditTextStyle</item>
         <item name="editTextStyle">@style/EditTextStyle</item>
+        <item name="android:actionMenuTextAppearance">@style/BottomMenuStyle</item>
+        <item name="actionMenuTextAppearance">@style/BottomMenuStyle</item>
+        <item name="chipStyle">@style/BadgeStyle</item>
 
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -48,9 +51,36 @@
         <item name="strokeWidth">1dp</item>
     </style>
 
+    <style name="ButtonGhost" parent="ButtonPrimary">
+        <item name="android:textColor">@color/zinc_900</item>
+        <item name="android:backgroundTint">@color/transparent</item>
+    </style>
+
     <style name="EditTextStyle" parent="android:Widget.EditText">
         <item name="android:background">@drawable/input</item>
         <item name="android:paddingHorizontal">16dp</item>
         <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="BottomMenuStyle">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="BadgeStyle" parent="@style/Widget.MaterialComponents.Chip.Action">
+        <item name="android:textAppearance">@style/BadgeTextStyle</item>
+        <item name="android:paddingHorizontal">16dp</item>
+        <item name="android:paddingVertical">4dp</item>
+    </style>
+
+    <style name="BadgeTextStyle" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="RoundedImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 </resources>

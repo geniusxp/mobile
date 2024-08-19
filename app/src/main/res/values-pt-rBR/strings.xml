@@ -26,4 +26,15 @@
     <string name="input_password_hint">Senha</string>
 
     <string name="agree_terms">Ao continuar você aceita os <u>Termos de Uso</u> e <u>Política de Privacidade</u> definidos pela GeniusXP.</string>
+
+    <string name="tickets_title">Meus ingressos</string>
+    <string name="tickets_next">Próximos</string>
+    <string name="tickets_previous">Anteriores</string>
+
+    <string name="profile_edit_profile_btn">Editar perfil</string>
+    <string name="profile_about">Sobre mim</string>
+    <string name="profile_interests">Interesses</string>
+
+    <string name="menu_tickets">Ingressos</string>
+    <string name="menu_profile">Perfil</string>
 </resources>
