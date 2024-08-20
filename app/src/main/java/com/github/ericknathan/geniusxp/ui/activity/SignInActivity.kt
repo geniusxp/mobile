@@ -27,6 +27,7 @@ class SignInActivity : Activity() {
         buttonSignIn.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
+            this.finish()
         }
 
         buttonCreateAccount.setOnClickListener {

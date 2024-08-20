@@ -3,7 +3,6 @@ package com.github.ericknathan.geniusxp.ui.activity
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.github.ericknathan.geniusxp.R
 import com.google.android.material.button.MaterialButton

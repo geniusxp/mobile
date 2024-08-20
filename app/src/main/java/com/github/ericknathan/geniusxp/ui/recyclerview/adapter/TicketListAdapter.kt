@@ -1,7 +1,7 @@
 package com.github.ericknathan.geniusxp.ui.recyclerview.adapter
 
 import android.content.Context
-import android.util.Log
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.github.ericknathan.geniusxp.R
 import com.github.ericknathan.geniusxp.models.Ticket
+import com.github.ericknathan.geniusxp.ui.activity.TicketDetailsActivity
 import com.squareup.picasso.Picasso
 
 class TicketListAdapter(
@@ -31,14 +32,15 @@ class TicketListAdapter(
             ticketAvailable.text = "${ticket.available} ${if (ticket.available > 1) "disponíveis" else "disponível"}"
 
             itemView.setOnClickListener {
-                Log.i("xpto", ticket.title)
+                val intent = Intent(itemView.context, TicketDetailsActivity::class.java)
+                itemView.context.startActivity(intent)
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(context)
-        val view = inflater.inflate(R.layout.card_ticket, parent, false)
+        val view = inflater.inflate(R.layout.comp_card_ticket, parent, false)
         return ViewHolder(view)
     }
 

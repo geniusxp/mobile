@@ -1,6 +1,5 @@
 package com.github.ericknathan.geniusxp.ui.fragments
 
-import android.content.res.ColorStateList
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -33,7 +32,7 @@ class ProfileFragment : Fragment() {
         val interestsList = listOf("Tecnologia", "Jogos Online", "IoT e Robótica", "Filmes", "Música", "Outros")
 
         for (interest in interestsList) {
-            val chip = layoutInflater.inflate(R.layout.interest_item, interestsView, false) as Chip
+            val chip = layoutInflater.inflate(R.layout.comp_interest_item, interestsView, false) as Chip
             chip.text = interest
             interestsView.addView(chip)
         }

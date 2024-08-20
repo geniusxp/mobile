@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Cronograma" android:id="@+id/schedule" android:icon="@drawable/icon_clock" />
+    <item android:title="Speakers" android:id="@+id/speakers" android:icon="@drawable/icon_mic" />
+    <item android:title="Interação" android:id="@+id/interaction" android:icon="@drawable/icon_chat" />
+    <item android:title="Mapa" android:id="@+id/map" android:icon="@drawable/icon_map" />
+</menu>
