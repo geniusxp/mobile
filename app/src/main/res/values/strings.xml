@@ -24,6 +24,8 @@
     <string name="input_cpf_hint">Identifier Document</string>
     <string name="input_email_hint">Email address</string>
     <string name="input_password_hint">Password</string>
+    <string name="input_search_speaker">Search by speaker name…</string>
+    <string name="input_send_message">Send a new message…</string>
 
     <string name="agree_terms">By continuing you accept the <u>Terms of Use</u> and <u>Privacy Policy</u> defined by GeniusXP.</string>
 
@@ -37,4 +39,17 @@
 
     <string name="menu_tickets">Tickets</string>
     <string name="menu_profile">Profile</string>
+    <string name="menu_schedule">Schedule</string>
+    <string name="menu_speakers">Speakers</string>
+    <string name="menu_interaction">Interaction</string>
+    <string name="menu_map">Map</string>
+
+    <string name="schedule_order_btn">Sort by</string>
+    <string name="schedule_filter_btn">Filter</string>
+
+    <string name="speaker_social_btn">LinkedIn</string>
+    <string name="speaker_rate_btn">Rate</string>
+
+    <string name="badge_speaker">Speaker</string>
+    <string name="badge_live">Live</string>
 </resources>

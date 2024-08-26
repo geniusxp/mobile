@@ -1,13 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp">
-    <include layout="@layout/comp_header" />
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+        <include layout="@layout/comp_header" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cronograma" />
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/previousDay"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                style="@style/ButtonSecondary"
+                android:backgroundTint="@color/zinc_100"
+                app:icon="@drawable/icon_chevron_left"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="25/10"
+                android:textAlignment="center"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="20sp"
+                android:textColor="@color/zinc_800"
+                android:layout_marginTop="2dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/nextDay"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                style="@style/ButtonSecondary"
+                android:backgroundTint="@color/zinc_100"
+                app:icon="@drawable/icon_chevron_right"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="24dp">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/orderByButton"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                style="@style/ButtonSecondary"
+                android:backgroundTint="@color/zinc_100"
+                android:text="Ordenar por"
+                app:icon="@drawable/icon_sort"
+                android:layout_marginEnd="8dp"
+                android:textSize="16sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/filterButton"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                style="@style/ButtonSecondary"
+                android:backgroundTint="@color/zinc_100"
+                android:text="Filtrar"
+                app:icon="@drawable/icon_filter"
+                android:layout_marginStart="8dp"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lectureList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/comp_card_lecture" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

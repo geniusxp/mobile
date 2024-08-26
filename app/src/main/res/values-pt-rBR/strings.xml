@@ -24,6 +24,8 @@
     <string name="input_cpf_hint">CPF</string>
     <string name="input_email_hint">Endereço de E-mail</string>
     <string name="input_password_hint">Senha</string>
+    <string name="input_search_speaker">Pesquise pelo nome do speaker…</string>
+    <string name="input_send_message">Envie uma nova mensagem…</string>
 
     <string name="agree_terms">Ao continuar você aceita os <u>Termos de Uso</u> e <u>Política de Privacidade</u> definidos pela GeniusXP.</string>
 
@@ -37,4 +39,17 @@
 
     <string name="menu_tickets">Ingressos</string>
     <string name="menu_profile">Perfil</string>
+    <string name="menu_schedule">Cronograma</string>
+    <string name="menu_speakers">Speakers</string>
+    <string name="menu_interaction">Interação</string>
+    <string name="menu_map">Mapa</string>
+
+    <string name="schedule_order_btn">Ordenar por</string>
+    <string name="schedule_filter_btn">Filtrar</string>
+
+    <string name="speaker_social_btn">LinkedIn</string>
+    <string name="speaker_rate_btn">Avaliar</string>
+
+    <string name="badge_speaker">Speaker</string>
+    <string name="badge_live">Ao vivo</string>
 </resources>
