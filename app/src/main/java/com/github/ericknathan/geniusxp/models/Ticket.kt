@@ -1,6 +1,6 @@
 package com.github.ericknathan.geniusxp.models
 
-class Ticket(
+data class Ticket(
     val title: String,
     val address: String,
     val available: Int,

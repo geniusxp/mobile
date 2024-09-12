@@ -1,6 +1,6 @@
 package com.github.ericknathan.geniusxp.models
 
-class Lecture(
+data class Lecture(
     val title: String,
     val speaker: Speaker,
     val hour: String,

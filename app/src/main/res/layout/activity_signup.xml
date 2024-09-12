@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:ems="10"
-            android:inputType="date"
+            android:inputType="none"
             android:hint="@string/input_birth_hint"
             android:layout_marginBottom="8dp"
             android:autofillHints="birthday"
@@ -78,7 +78,8 @@
             android:inputType="number"
             android:hint="@string/input_cpf_hint"
             android:layout_marginBottom="8dp"
-            android:autofillHints="cpf" />
+            android:autofillHints="cpf"
+            android:maxLength="11" />
 
         <EditText
             android:id="@+id/emailInput"

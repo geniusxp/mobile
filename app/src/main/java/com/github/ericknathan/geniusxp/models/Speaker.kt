@@ -1,6 +1,6 @@
 package com.github.ericknathan.geniusxp.models
 
-class Speaker(
+data class Speaker(
     val name: String,
     val bio: String,
     val avatarURL: String,
