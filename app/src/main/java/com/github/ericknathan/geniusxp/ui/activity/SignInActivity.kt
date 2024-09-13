@@ -2,7 +2,9 @@ package com.github.ericknathan.geniusxp.ui.activity
 
 import android.app.Activity
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import com.github.ericknathan.geniusxp.R
@@ -27,7 +29,6 @@ class SignInActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signin)
         val bundle = intent.extras;
-
 
         val buttonBack = findViewById<TextView>(R.id.backButton)
         val buttonForgotPassword = findViewById<TextView>(R.id.forgotPasswordButton)
@@ -80,13 +81,20 @@ class SignInActivity : Activity() {
             }
 
             override fun onResponse(call: Call, response: okhttp3.Response) {
-                println(response.body?.string())
+                val responseBody = gson.fromJson(response.body?.string(), Map::class.java)
 
                 runOnUiThread {
                     val context = this@SignInActivity
 
                     when (response.code) {
                         HttpStatusCode.OK -> {
+                            val accessToken = responseBody["token"].toString()
+
+                            val sharedPreferences = getSharedPreferences("user", MODE_PRIVATE)
+                            val editor: SharedPreferences.Editor = sharedPreferences.edit()
+                            editor.putString("accessToken", accessToken)
+                            editor.apply()
+
                             val intent = Intent(context, HomeActivity::class.java)
                             startActivity(intent)
                             context.finish()

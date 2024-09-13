@@ -61,7 +61,8 @@
                 android:fontFamily="@font/poppins_bold"
                 tools:text="User Name"
                 android:textAlignment="center"
-                android:textSize="32sp" />
+                android:textSize="32sp"
+                android:breakStrategy="balanced" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/submitButton"
