@@ -15,12 +15,23 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.github.ericknathan.geniusxp.R
+import com.github.ericknathan.geniusxp.services.api.ApiClient
 import com.github.ericknathan.geniusxp.services.getUserProfile
+import com.github.ericknathan.geniusxp.utils.Constants
+import com.google.gson.Gson
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
 
 
 class InteractionFragment : Fragment() {
+    private val client = ApiClient.getClient(this.requireContext())
+
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,20 +74,29 @@ class InteractionFragment : Fragment() {
         lifecycleScope.launch {
             val user = getUserProfile(requireActivity()) ?: return@launch
 
-            val messageView = layoutInflater.inflate(
-                R.layout.comp_message_item,
-                messageListView as ViewGroup,
-                false
-            )
-            Picasso.get().load(user.avatarUrl)
-                .into(messageView.findViewById<ImageView>(R.id.avatarImage));
+                val messageView = layoutInflater.inflate(
+                    R.layout.comp_message_item,
+                    messageListView as ViewGroup,
+                    false
+                )
+                Picasso.get().load(user.avatarUrl)
+                    .into(messageView.findViewById<ImageView>(R.id.avatarImage));
 
-            val spannable = SpannableString("${user.name}: $message")
-            val usernameStyles = TextAppearanceSpan(requireContext(), R.style.MessageUsername)
-            spannable.setSpan(usernameStyles, 0, user.name.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                val spannable = SpannableString("${user.name}: $message")
+                val usernameStyles = TextAppearanceSpan(requireContext(), R.style.MessageUsername)
+                spannable.setSpan(usernameStyles, 0, user.name.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
 
-            messageView.findViewById<TextView>(R.id.messageText).text = spannable
-            messageListView.addView(messageView)
+                messageView.findViewById<TextView>(R.id.messageText).text = spannable
+                messageListView.addView(messageView)
+
+                withContext(Dispatchers.IO) {
+                    val request = Request.Builder()
+                        .url("${Constants.API_URL_CHAT}/event/1/send-message?message=$message")
+                        .post("".toRequestBody("application/json".toMediaType()))
+                        .build()
+
+                    client.newCall(request).execute()
+                }
         }
     }
 }
