@@ -83,4 +83,9 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+
+    <style name="MessageUsername">
+        <item name="android:textColor">@color/primary_500</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
 </resources>
