@@ -64,13 +64,29 @@
                 android:textSize="32sp"
                 android:breakStrategy="balanced" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/submitButton"
-                style="@style/ButtonPrimary"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="42dp"
-                android:text="@string/profile_edit_profile_btn"
-                app:icon="@drawable/icon_edit" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/editProfileButton"
+                    style="@style/ButtonPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:text="@string/profile_edit_profile_btn"
+                    app:icon="@drawable/icon_edit"
+                    android:layout_marginEnd="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/logoutButton"
+                    style="@style/ButtonSecondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:text="@string/profile_logout_btn"
+                    app:icon="@drawable/icon_logout" />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"

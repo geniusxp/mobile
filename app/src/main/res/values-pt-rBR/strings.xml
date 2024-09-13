@@ -34,6 +34,7 @@
     <string name="tickets_previous">Anteriores</string>
 
     <string name="profile_edit_profile_btn">Editar perfil</string>
+    <string name="profile_logout_btn">Sair</string>
     <string name="profile_about">Sobre mim</string>
     <string name="profile_interests">Interesses</string>
 
