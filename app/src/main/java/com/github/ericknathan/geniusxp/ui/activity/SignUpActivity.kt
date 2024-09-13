@@ -13,6 +13,7 @@ import com.github.ericknathan.geniusxp.R
 import com.github.ericknathan.geniusxp.enums.HttpStatusCode
 import com.github.ericknathan.geniusxp.models.forms.SignInForm
 import com.github.ericknathan.geniusxp.models.forms.SignUpForm
+import com.github.ericknathan.geniusxp.services.api.ApiClient
 import com.github.ericknathan.geniusxp.utils.Constants
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.datepicker.CalendarConstraints
@@ -33,7 +34,7 @@ import java.util.Calendar
 import java.util.Locale
 
 class SignUpActivity : AppCompatActivity() {
-    private val client = OkHttpClient()
+    private val client = ApiClient.getClient()
     private val gson = Gson()
 
     private var birthDate = "";

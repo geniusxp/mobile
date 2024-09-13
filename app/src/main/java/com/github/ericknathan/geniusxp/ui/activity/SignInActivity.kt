@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.github.ericknathan.geniusxp.R
 import com.github.ericknathan.geniusxp.enums.HttpStatusCode
 import com.github.ericknathan.geniusxp.models.forms.SignInForm
+import com.github.ericknathan.geniusxp.services.api.ApiClient
 import com.github.ericknathan.geniusxp.utils.Constants
 import com.google.android.material.button.MaterialButton
 import com.google.gson.Gson
@@ -22,7 +23,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.IOException
 
 class SignInActivity : Activity() {
-    private val client = OkHttpClient()
+    private val client = ApiClient.getClient()
     private val gson = Gson()
 
     override fun onCreate(savedInstanceState: Bundle?) {
