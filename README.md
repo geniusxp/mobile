@@ -37,15 +37,15 @@ https://github.com/user-attachments/assets/4be8c8b5-5bbd-4c9e-9488-44967d833b59
 ## 📂 Estrutura de pastas
 A estrutura do projeto GeniusXP foi organizada de forma a garantir modularidade e escalabilidade. Cada parte da aplicação foi separada em pacotes e pastas específicas, facilitando a manutenção e o entendimento do código. Abaixo, está descrita a organização dos principais diretórios e seus respectivos papéis na arquitetura do sistema, abordando tanto o código de back-end quanto os recursos de interface visual.
 
-![Diagrama de pastas aqui]()
+![GeniusXP - Diagrama de pastas](https://github.com/user-attachments/assets/d2e7a244-8c53-4d13-847e-77aaec3986ec)
 
-- java/com/github/ericknathan/geniusxp
+- app/src/main/java/com/github/ericknathan/geniusxp - Pacote principal (Kotlin)
     - `enums`: Contém os enumeradores que definem constantes e categorias específicas usadas em todo o projeto, como status de eventos, tipos de ingressos, etc.
     - `models`: Pasta destinada aos modelos de dados, responsáveis pela estruturação dos dados que trafegam entre a API, o banco de dados e a interface do usuário. Exemplos incluem classes para usuários, eventos, ingressos e palestrantes.
     - `services`: Agrupa as classes que lidam com a lógica de negócios e a comunicação com APIs externas. Os serviços aqui implementam funcionalidades como envio de notificações, autenticação de usuário, e gerenciamento de eventos e inscrições.
     - `ui`: Contém as classes responsáveis pela lógica de interação com o usuário. Isso inclui activities e fragments que controlam o fluxo da interface, como login, cadastro, e navegação entre seções do aplicativo.
     - `utils`: Classes utilitárias que fornecem funções auxiliares, como formatação de datas, manipulação de strings e outras operações repetitivas, facilitando o reuso de código.
-- res
+- app/src/main/res - Recursos do aplictivo (XML)
     - `drawable`: Contém os recursos gráficos como ícones, botões, e imagens usadas na interface do aplicativo.
     - `font`: Armazena fontes personalizadas que podem ser usadas no design da interface, garantindo uma identidade visual única.
     - `layout`: Pasta que contém os arquivos XML responsáveis pela definição das telas e componentes visuais do aplicativo, como activities e fragments.
