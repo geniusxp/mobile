@@ -7,14 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.github.ericknathan.geniusxp.R
-import com.github.ericknathan.geniusxp.models.Lecture
+import com.github.ericknathan.geniusxp.enums.Language
 import com.github.ericknathan.geniusxp.models.Speaker
-import com.github.ericknathan.geniusxp.models.Ticket
-import com.github.ericknathan.geniusxp.ui.activity.TicketDetailsActivity
 import com.google.android.material.imageview.ShapeableImageView
 import com.squareup.picasso.Picasso
 
@@ -25,21 +22,21 @@ class SpeakerListAdapter(
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun sync(speaker: Speaker) {
             val speakerImage = itemView.findViewById<ShapeableImageView>(R.id.speakerImage)
-            Picasso.get().load(speaker.avatarURL).into(speakerImage);
+            Picasso.get().load(speaker.avatarUrl).into(speakerImage);
 
             val speakerName = itemView.findViewById<TextView>(R.id.speakerName)
             speakerName.text = speaker.name
 
             val speakerNationality = itemView.findViewById<TextView>(R.id.speakerNationality)
-            speakerNationality.text = speaker.nationality
+            speakerNationality.text = Language.valueOf(speaker.language).flag
 
             val speakerBio = itemView.findViewById<TextView>(R.id.speakerBio)
-            speakerBio.text = speaker.bio
+            speakerBio.text = speaker.description
 
             val linkedinButton = itemView.findViewById<Button>(R.id.linkedinButton)
             linkedinButton.setOnClickListener {
                 val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse(speaker.linkedInURL)
+                intent.data = Uri.parse(speaker.socialMediaUrl)
                 itemView.context.startActivity(intent)
             }
         }

@@ -13,15 +13,17 @@ import com.github.ericknathan.geniusxp.ui.fragments.SpeakersFragment
 class EventActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEventBinding
 
-    private val scheduleFragment = ScheduleFragment()
-    private val speakersFragment = SpeakersFragment()
-    private val interactionFragment = InteractionFragment()
-    private val mapFragment = MapFragment()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEventBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val scheduleFragment = ScheduleFragment()
+        val speakersFragment = SpeakersFragment()
+        val interactionFragment = InteractionFragment()
+        val mapFragment = MapFragment()
 
         setCurrentFragment(scheduleFragment)
 

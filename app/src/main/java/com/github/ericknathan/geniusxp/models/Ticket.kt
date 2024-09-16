@@ -1,8 +1,14 @@
 package com.github.ericknathan.geniusxp.models
 
+import java.io.Serializable
+
 data class Ticket(
-    val title: String,
-    val address: String,
-    val available: Int,
-    val avatarURL: String
-)
+    val id: Long,
+    val dateOfUse: String?,
+    val issuedDate: String,
+    val ticketNumber: String,
+    val payment: Payment,
+    val coupon: String?,
+    val ticketType: TicketType,
+    val event: Event,
+) : Serializable

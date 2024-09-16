@@ -27,11 +27,14 @@
             android:textColor="@color/zinc_300"
             android:layout_marginHorizontal="8dp" />
         <ImageView
+            android:id="@+id/eventImage"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:background="@drawable/shape_org_avatar"
-            />
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true" />
         <TextView
+            android:id="@+id/eventName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="FIAP Next 2024"

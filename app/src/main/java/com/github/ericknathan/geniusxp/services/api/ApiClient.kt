@@ -6,14 +6,15 @@ import okhttp3.OkHttpClient
 
 object ApiClient {
     private var client: OkHttpClient? = null
+    private var clientAuth: OkHttpClient? = null
 
     fun getClient(context: Context): OkHttpClient {
-        if (client == null) {
-            client = OkHttpClient.Builder()
+        if (clientAuth == null) {
+            clientAuth = OkHttpClient.Builder()
                 .addInterceptor(AuthInterceptor(context))
                 .build()
         }
-        return client!!
+        return clientAuth!!
     }
 
     fun getClient(): OkHttpClient {

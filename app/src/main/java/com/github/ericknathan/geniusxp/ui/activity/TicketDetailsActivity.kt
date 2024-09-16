@@ -8,28 +8,49 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.github.ericknathan.geniusxp.R
+import com.github.ericknathan.geniusxp.models.Ticket
+import com.google.gson.Gson
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.EncodeHintType
 import com.google.zxing.WriterException
 import com.google.zxing.qrcode.QRCodeWriter
 import com.squareup.picasso.Picasso
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.EnumMap
 import java.util.UUID
 
 
 class TicketDetailsActivity : AppCompatActivity() {
+    private val gson = Gson()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ticket_details)
 
+        val bundle = intent.extras;
+        val ticket: Ticket = gson.fromJson(bundle?.getString("ticket"), Ticket::class.java)
+
+        loadHeader(ticket)
+
         val ticketBanner = findViewById<ImageView>(R.id.ticketBanner)
-        Picasso.get().load("https://i.ytimg.com/vi/7Ggx_UsW17o/maxresdefault.jpg").into(ticketBanner)
+        Picasso.get().load(ticket.event.imageUrl).into(ticketBanner)
+
+        val ticketType = findViewById<TextView>(R.id.ticketType)
+        ticketType.text = ticket.ticketType.category
+
+        val date = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("EEEE, dd 'de' MMMM yyyy")
+
+        val eventDate = findViewById<TextView>(R.id.ticketDate)
+        eventDate.text = date.format(formatter).capitalize()
 
         val qrCode = findViewById<ImageView>(R.id.ticketBarCode)
-        qrCode.setImageBitmap(generateQRCodeBitmap(UUID.randomUUID().toString()))
+        qrCode.setImageBitmap(generateQRCodeBitmap(ticket.ticketNumber))
 
         val expirationBar = findViewById<ProgressBar>(R.id.expirationBar)
         val animation = ObjectAnimator.ofInt(expirationBar, "progress", 59, 0).apply {
@@ -47,6 +68,11 @@ class TicketDetailsActivity : AppCompatActivity() {
         val accessEventButton = findViewById<Button>(R.id.accessEventButton)
         accessEventButton.setOnClickListener {
             val intent = Intent(this, EventActivity::class.java)
+
+            val newBundle = Bundle()
+            newBundle.putString("event", gson.toJson(ticket.event))
+
+            intent.putExtras(newBundle)
             startActivity(intent)
         }
 
@@ -76,5 +102,13 @@ class TicketDetailsActivity : AppCompatActivity() {
         val bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
         bitmap.setPixels(pixels, 0, w, 0, 0, w, h)
         return bitmap
+    }
+
+    fun loadHeader(ticket: Ticket) {
+        val eventImage = findViewById<ImageView>(R.id.eventImage)
+        Picasso.get().load(ticket.event.imageUrl).into(eventImage)
+
+        val eventName = findViewById<TextView>(R.id.eventName)
+        eventName.text = ticket.event.name
     }
 }

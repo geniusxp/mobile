@@ -1,9 +1,8 @@
 package com.github.ericknathan.geniusxp.models
 
-data class Lecture(
+data class TicketType(
     val id: Long,
-    val name: String,
+    val priceValue: Long,
+    val category: String,
     val description: String,
-    val date: String,
-    val speaker: Speaker,
 )

@@ -5,31 +5,82 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.ericknathan.geniusxp.R
+import com.github.ericknathan.geniusxp.enums.HttpStatusCode
+import com.github.ericknathan.geniusxp.models.Event
 import com.github.ericknathan.geniusxp.models.Lecture
 import com.github.ericknathan.geniusxp.models.Speaker
+import com.github.ericknathan.geniusxp.models.Ticket
+import com.github.ericknathan.geniusxp.services.api.ApiClient
 import com.github.ericknathan.geniusxp.ui.recyclerview.adapter.LectureListAdapter
 import com.github.ericknathan.geniusxp.ui.recyclerview.adapter.SpeakerListAdapter
+import com.github.ericknathan.geniusxp.ui.recyclerview.adapter.TicketListAdapter
+import com.github.ericknathan.geniusxp.utils.Constants
+import com.google.gson.Gson
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.Request
+import java.io.IOException
 
 class SpeakersFragment : Fragment() {
+    private val gson = Gson()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_speakers, container, false)
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.speakerList)
-        recyclerView.adapter = SpeakerListAdapter(view.context, listOf(
-            Speaker("ThePrimeagen", "Streamer e Youtuber americano conhecido por sua obsessão por Neovim, engenharia e atualmente trabalha na Netflix.", "https://yt3.googleusercontent.com/ytc/AIdro_laY82JAzs_2edBDxrxLgLWshhMK04SpAqOfoEzexOBZg=s900-c-k-c0x00ffffff-no-rj", "https://www.linkedin.com/in/theprimeagen-multi-billion-9699184a", "\uD83C\uDDFA\uD83C\uDDF8"),
-            Speaker("Rafaella Ballerini", "Criadora de conteúdo de tecnologia, guiando pessoas que desejam iniciar na área de desenvolvimento de software.", "https://avatars.githubusercontent.com/u/54322854?v=4", "https://www.linkedin.com/in/rafaellaballerini", "\uD83C\uDDE7\uD83C\uDDF7"),
-            Speaker("Keit Oliveira", "Organizadora responsável pela produção do FRONTIN Sampa, tradicional evento de desenvolvimento web desde 2012.", "https://avatars.githubusercontent.com/u/3808430?v=4", "https://www.linkedin.com/in/keitoliveira", "\uD83C\uDDE7\uD83C\uDDF7"),
-            Speaker("Lucas Santos", "Engenheiro de software que vem criando bugs desde 2011.", "https://static-media.hotmart.com/WxCwNlqKeO1BGsKnIlj0pW5YT3E=/filters:quality(1):format(webp)/klickart-prod/uploads/media/file/6567590/avatar_palestra.png", "https://www.linkedin.com/in/lsantosdev", "\uD83C\uDDE7\uD83C\uDDF7"),
-        ))
-        recyclerView.layoutManager = LinearLayoutManager(view.context)
+        val bundle = activity?.intent?.extras
+        val event = gson.fromJson(bundle?.getString("event"), Event::class.java)
+
+        loadSpeakers(view, event.id)
 
         return view
     }
 
+    private fun loadSpeakers(view: View, eventId: Long) {
+        val client = ApiClient.getClient(view.context)
+        val gson = Gson()
+
+        val request = Request.Builder()
+            .url("${Constants.API_URL}/events/${eventId}/speakers")
+            .get()
+            .build()
+
+        val response = object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                activity?.runOnUiThread {
+                    Toast.makeText(activity, "Erro ao carregar os palestrantes", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onResponse(call: Call, response: okhttp3.Response) {
+                val responseBody = gson.fromJson(response.body?.string(), List::class.java)
+
+                activity?.runOnUiThread {
+                    when (response.code) {
+                        HttpStatusCode.OK -> {
+                            val speakers = responseBody.map { speaker ->
+                                gson.fromJson(gson.toJson(speaker), Speaker::class.java)
+                            }
+
+                            val recyclerView = view.findViewById<RecyclerView>(R.id.speakerList)
+                            recyclerView.adapter = SpeakerListAdapter(view.context, speakers)
+                            recyclerView.layoutManager = LinearLayoutManager(view.context)
+                        }
+
+                        else -> {
+                            Toast.makeText(activity, "Erro ao carregar os palestrantes", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            }
+        }
+
+        client.newCall(request).enqueue(response)
+    }
 }

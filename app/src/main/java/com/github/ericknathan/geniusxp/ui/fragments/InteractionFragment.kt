@@ -30,7 +30,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 
 
 class InteractionFragment : Fragment() {
-    private val client = ApiClient.getClient(this.requireContext())
+    private val gson = Gson()
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreateView(
@@ -90,12 +90,18 @@ class InteractionFragment : Fragment() {
                 messageListView.addView(messageView)
 
                 withContext(Dispatchers.IO) {
-                    val request = Request.Builder()
-                        .url("${Constants.API_URL_CHAT}/event/1/send-message?message=$message")
-                        .post("".toRequestBody("application/json".toMediaType()))
-                        .build()
+                    try {
+                        val client = ApiClient.getClient(this@InteractionFragment.requireContext())
 
-                    client.newCall(request).execute()
+                        val request = Request.Builder()
+                            .url("${Constants.API_URL_CHAT}/event/1/send-message?message=$message")
+                            .post("".toRequestBody("application/json".toMediaType()))
+                            .build()
+
+                        client.newCall(request).execute()
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
                 }
         }
     }

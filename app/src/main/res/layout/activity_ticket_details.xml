@@ -74,6 +74,7 @@
                         android:textSize="11sp"
                         android:textColor="@color/zinc_600" />
                     <TextView
+                        android:id="@+id/ticketType"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Meia-entrada"
@@ -108,9 +109,10 @@
                 android:textSize="11sp"
                 android:textColor="@color/zinc_600" />
             <TextView
+                android:id="@+id/ticketDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Segunda-feira, 25 de Outubro 2024"
+                android:text="segunda-feira, 25 de Outubro 2024"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="16sp"
                 android:textColor="@color/zinc_900" />
@@ -134,6 +136,7 @@
                         android:textSize="11sp"
                         android:textColor="@color/zinc_600" />
                     <TextView
+                        android:id="@+id/ticketOpenTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="09:00"
@@ -157,6 +160,7 @@
                         android:textSize="11sp"
                         android:textColor="@color/zinc_600" />
                     <TextView
+                        android:id="@+id/ticketStartTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="10:00"
@@ -180,6 +184,7 @@
                         android:textSize="11sp"
                         android:textColor="@color/zinc_600" />
                     <TextView
+                        android:id="@+id/ticketEndTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="21:00"
@@ -205,6 +210,7 @@
                 android:textSize="11sp"
                 android:textColor="@color/zinc_600" />
             <TextView
+                android:id="@+id/ticketAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ginásio Ibirapuera - Rua Manuel da Nobrega, 1361 - Ibirapuera"

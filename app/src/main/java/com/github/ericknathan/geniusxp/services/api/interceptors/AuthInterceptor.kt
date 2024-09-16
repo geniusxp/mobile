@@ -12,20 +12,38 @@ import okhttp3.Response
 import java.io.IOException
 
 
-internal class AuthInterceptor(private val context: Context) : Interceptor {
+internal class AuthInterceptor(private val context: Context?) : Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
-        val request: Request = chain.request()
-        val response: Response = chain.proceed(request)
+        if(context != null) {
+            val sharedPreferences = context.getSharedPreferences("user", Context.MODE_PRIVATE)
+            val accessToken = sharedPreferences.getString("accessToken", null)
 
-        if(response.code == HttpStatusCode.UNAUTHORIZED) {
-            val intent = Intent(context, WelcomeActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            context.startActivity(intent)
+            val request: Request = chain.request()
+                .newBuilder()
+                .addHeader("Authorization", "Bearer $accessToken")
+                .build()
 
-            Toast.makeText(context, "Sessão expirada. Faça login novamente.", Toast.LENGTH_SHORT).show()
+            val response: Response = chain.proceed(request)
+
+            if (response.code == HttpStatusCode.UNAUTHORIZED) {
+                val intent = Intent(context, WelcomeActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                context.startActivity(intent)
+
+                Toast.makeText(
+                    context,
+                    "Sessão expirada. Faça login novamente.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
+            return response
+        } else {
+            val request: Request = chain.request()
+            val response: Response = chain.proceed(request)
+
+            return response
         }
-
-        return response
     }
 }

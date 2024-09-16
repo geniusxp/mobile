@@ -2,6 +2,7 @@ package com.github.ericknathan.geniusxp.ui.recyclerview.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.ericknathan.geniusxp.R
 import com.github.ericknathan.geniusxp.models.Ticket
 import com.github.ericknathan.geniusxp.ui.activity.TicketDetailsActivity
+import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 
 class TicketListAdapter(
@@ -18,21 +20,29 @@ class TicketListAdapter(
     private val tickets: List<Ticket>
 ) : RecyclerView.Adapter<TicketListAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        private val gson = Gson()
+
         fun sync(ticket: Ticket) {
+            println("TICKET: " + ticket)
             val ticketImage = itemView.findViewById<ImageView>(R.id.ticketImage)
-            Picasso.get().load(ticket.avatarURL).into(ticketImage);
+            Picasso.get().load(ticket.event.imageUrl).into(ticketImage);
 
             val ticketTitle = itemView.findViewById<TextView>(R.id.ticketTitle)
-            ticketTitle.text = ticket.title
+            ticketTitle.text = ticket.event.name
 
             val ticketAddress = itemView.findViewById<TextView>(R.id.ticketAddress)
-            ticketAddress.text = ticket.address
+            ticketAddress.text = ticket.event.description
 
             val ticketAvailable = itemView.findViewById<TextView>(R.id.ticketAvailable)
-            ticketAvailable.text = "${ticket.available} ${if (ticket.available > 1) "disponíveis" else "disponível"}"
+            ticketAvailable.text = "1 disponível"
 
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, TicketDetailsActivity::class.java)
+
+                val bundle = Bundle()
+                bundle.putString("ticket", gson.toJson(ticket))
+
+                intent.putExtras(bundle)
                 itemView.context.startActivity(intent)
             }
         }
