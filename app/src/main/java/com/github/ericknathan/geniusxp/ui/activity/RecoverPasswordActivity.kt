@@ -47,7 +47,7 @@ class RecoverPasswordActivity : Activity() {
         val body = gson.toJson(data)
         val request = Request.Builder()
             .url("${Constants.API_URL}/auth/recover-password")
-            .post(body.toRequestBody("application/json".toMediaType()))
+            .put(body.toRequestBody("application/json".toMediaType()))
             .build()
 
         val response = object : Callback {

@@ -24,15 +24,17 @@ https://github.com/user-attachments/assets/4be8c8b5-5bbd-4c9e-9488-44967d833b59
 - [Mapa do evento](./app/src/main/res/layout/fragment_map.xml)
 
 ## 🔗 Integrações
-- [Login](./app/src/main/java/com/github/ericknathan/geniusxp/ui/activity/SignInActivity.kt:70)
-- [Cadastro de usuário](./app/src/main/java/com/github/ericknathan/geniusxp/ui/activity/SignUpActivity.kt:104)
-- [Recuperação de senha](./app/src/main/java/com/github/ericknathan/geniusxp/ui/activity/RecoverPasswordActivity.kt:46)
-- [Listagem de ingressos](./app/src/main/java/com/github/ericknathan/geniusxp/ui/fragments/TicketsFragment.kt:35)
-- [Perfil](./app/src/main/java/com/github/ericknathan/geniusxp/services/Profile.kt:25)
-- [Listagem de palestrantes](./app/src/main/java/com/github/ericknathan/geniusxp/ui/fragments/SpeakersFragment.kt:45)
-- [Listagem de dias de evento](./app/src/main/java/com/github/ericknathan/geniusxp/ui/fragments/ScheduleFragment.kt:47)
-- [Listagem de palestras](./app/src/main/java/com/github/ericknathan/geniusxp/ui/fragments/ScheduleFragment.kt:92)
-- [Envio de mensagem no chat](./app/src/main/java/com/github/ericknathan/geniusxp/ui/fragments/InteractionFragment.kt:71)
+- [[POST] Login](./app/src/main/java/com/github/ericknathan/geniusxp/ui/activity/SignInActivity.kt#L70)
+- [[POST] Cadastro de usuário](./app/src/main/java/com/github/ericknathan/geniusxp/ui/activity/SignUpActivity.kt#L104)
+- [[PUT] Recuperação de senha](./app/src/main/java/com/github/ericknathan/geniusxp/ui/activity/RecoverPasswordActivity.kt#L46)
+- [[GET] Listagem de ingressos](./app/src/main/java/com/github/ericknathan/geniusxp/ui/fragments/TicketsFragment.kt#L35)
+- [[GET] Perfil](./app/src/main/java/com/github/ericknathan/geniusxp/services/Profile.kt#L25)
+- [[GET] Listagem de palestrantes](./app/src/main/java/com/github/ericknathan/geniusxp/ui/fragments/SpeakersFragment.kt#L45)
+- [[GET] Listagem de dias de evento](./app/src/main/java/com/github/ericknathan/geniusxp/ui/fragments/ScheduleFragment.kt#L47)
+- [[GET] Listagem de palestras](./app/src/main/java/com/github/ericknathan/geniusxp/ui/fragments/ScheduleFragment.kt#L92)
+- [[POST] Envio de mensagem no chat](./app/src/main/java/com/github/ericknathan/geniusxp/ui/fragments/InteractionFragment.kt#L73)
+- [[DELETE] Deslogar usuário](./app/src/main/java/com/github/ericknathan/geniusxp/ui/fragments/ProfileFragment.kt#L95)
+
 
 ## 📂 Estrutura de pastas
 A estrutura do projeto GeniusXP foi organizada de forma a garantir modularidade e escalabilidade. Cada parte da aplicação foi separada em pacotes e pastas específicas, facilitando a manutenção e o entendimento do código. Abaixo, está descrita a organização dos principais diretórios e seus respectivos papéis na arquitetura do sistema, abordando tanto o código de back-end quanto os recursos de interface visual.
