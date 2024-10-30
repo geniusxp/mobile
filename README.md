@@ -23,6 +23,9 @@ https://github.com/user-attachments/assets/4be8c8b5-5bbd-4c9e-9488-44967d833b59
 - [Página de Interação](./app/src/main/res/layout/fragment_interaction.xml)
 - [Mapa do evento](./app/src/main/res/layout/fragment_map.xml)
 
+## 🎲 Dados salvos em armazenamento local (Async Storage)
+Atualmente, os dados de perfil do usuário e token de acesso são salvos utilizando Shared Preferences no arquivo [Profile.kt](./app/src/main/java/com/github/ericknathan/geniusxp/services/Profile.kt#L17)
+
 ## 🔗 Integrações
 - [[POST] Login](./app/src/main/java/com/github/ericknathan/geniusxp/ui/activity/SignInActivity.kt#L70)
 - [[POST] Cadastro de usuário](./app/src/main/java/com/github/ericknathan/geniusxp/ui/activity/SignUpActivity.kt#L104)
@@ -34,7 +37,6 @@ https://github.com/user-attachments/assets/4be8c8b5-5bbd-4c9e-9488-44967d833b59
 - [[GET] Listagem de palestras](./app/src/main/java/com/github/ericknathan/geniusxp/ui/fragments/ScheduleFragment.kt#L92)
 - [[POST] Envio de mensagem no chat](./app/src/main/java/com/github/ericknathan/geniusxp/ui/fragments/InteractionFragment.kt#L73)
 - [[DELETE] Deslogar usuário](./app/src/main/java/com/github/ericknathan/geniusxp/ui/fragments/ProfileFragment.kt#L95)
-
 
 ## 📂 Estrutura de pastas
 A estrutura do projeto GeniusXP foi organizada de forma a garantir modularidade e escalabilidade. Cada parte da aplicação foi separada em pacotes e pastas específicas, facilitando a manutenção e o entendimento do código. Abaixo, está descrita a organização dos principais diretórios e seus respectivos papéis na arquitetura do sistema, abordando tanto o código de back-end quanto os recursos de interface visual.
@@ -62,5 +64,6 @@ Este projeto está sendo desenvolvido pelos seguintes membros:
 
 - RM99565 - Erick Nathan Capito Pereira (2TDSPV)
 - RM99577 - Guilherme Dias Gomes (2TDSPX)
+- RM550889 - Hemily Nara da Silva (2TDSPX)
 - RM550841 - Lucas Araujo Oliveira Silva (2TDSPV)
 - RM99409 - Michael José Bernardi Da Silva (2TDSPX)
